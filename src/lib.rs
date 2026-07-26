@@ -1,6 +1,6 @@
 use zed_extension_api::{
-    self as zed, serde_json::Value, settings::LspSettings, Command, Extension, LanguageServerId,
-    Result, Worktree,
+    self as zed, serde_json::Value, settings::LspSettings, CodeLabel, CodeLabelSpan, Command,
+    Extension, LanguageServerId, Result, Worktree,
 };
 
 const SERVER_NAME: &str = "spice";
@@ -41,6 +41,31 @@ impl Extension for SpiceExtension {
                 .initialization_options,
         )
     }
+
+    fn label_for_completion(
+        &self,
+        language_server_id: &LanguageServerId,
+        completion: zed::lsp::Completion,
+    ) -> Option<CodeLabel> {
+        if language_server_id.as_ref() != SERVER_NAME {
+            return None;
+        }
+        let (name, detail) =
+            annotation_completion_parts(&completion.label, completion.detail.as_deref())?;
+        let mut spans = vec![
+            CodeLabelSpan::literal("@", Some("punctuation.special".to_owned())),
+            CodeLabelSpan::literal(name, Some("attribute".to_owned())),
+        ];
+        if let Some(detail) = detail {
+            spans.push(CodeLabelSpan::literal("  ", None));
+            spans.push(CodeLabelSpan::literal(detail, Some("comment".to_owned())));
+        }
+        Some(CodeLabel {
+            code: String::new(),
+            spans,
+            filter_range: (0..completion.label.len()).into(),
+        })
+    }
 }
 
 fn default_binary_settings() -> zed::settings::CommandSettings {
@@ -73,13 +98,31 @@ fn missing_binary_message() -> String {
         .to_owned()
 }
 
+fn annotation_completion_parts<'a>(
+    label: &'a str,
+    detail: Option<&'a str>,
+) -> Option<(&'a str, Option<&'a str>)> {
+    let name = label.strip_prefix('@')?;
+    if name.is_empty()
+        || !name
+            .chars()
+            .all(|character| character == '.' || character == '_' || character.is_alphanumeric())
+    {
+        return None;
+    }
+    Some((name, detail.filter(|value| !value.is_empty())))
+}
+
 zed::register_extension!(SpiceExtension);
 
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
 
-    use super::{language_server_arguments, language_server_environment, missing_binary_message};
+    use super::{
+        annotation_completion_parts, language_server_arguments, language_server_environment,
+        missing_binary_message,
+    };
 
     #[test]
     fn defaults_to_lsp_subcommand() {
@@ -116,5 +159,19 @@ mod tests {
         assert!(message.contains("PATH"));
         assert!(message.contains("binary.path"));
         assert!(message.contains("never downloads"));
+    }
+
+    #[test]
+    fn recognizes_only_spice_annotation_completion_labels() {
+        assert_eq!(
+            annotation_completion_parts("@management.Enable", Some("function")),
+            Some(("management.Enable", Some("function")))
+        );
+        assert_eq!(
+            annotation_completion_parts("@Application", Some("")),
+            Some(("Application", None))
+        );
+        assert_eq!(annotation_completion_parts("Application", None), None);
+        assert_eq!(annotation_completion_parts("@invalid-name", None), None);
     }
 }

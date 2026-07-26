@@ -3,4 +3,5 @@ package main
 
 // @Application
 // @management.Enable(expose=["health", "info"])
+// @observability.Logging
 func main() {}
