@@ -1,0 +1,13 @@
+id = "spice"
+name = "Spice"
+version = "0.1.0"
+schema_version = 1
+authors = ["Spice contributors"]
+description = "Compile-time Spice diagnostics, completion, hover, code actions, and annotation highlighting for Go."
+repository = "https://github.com/StevenBuglione/spice/tree/main/editors/zed"
+license = "Apache-2.0"
+
+[language_servers.spice]
+name = "Spice Language Server"
+languages = ["Go"]
+code_action_kinds = ["quickfix"]
