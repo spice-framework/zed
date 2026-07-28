@@ -21,3 +21,5 @@ func newResource() (*resource, lifecycle.Cleanup, error) {
 	}
 	return &resource{}, cleanup, nil
 }
+
+// @import { Bean } from "github.com/StevenBuglione/spice/annotation/core"
