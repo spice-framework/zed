@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/StevenBuglione/spice/lifecycle"
+	"github.com/spice-framework/spice/lifecycle"
 )
 
 type resource struct{}
@@ -22,4 +22,4 @@ func newResource() (*resource, lifecycle.Cleanup, error) {
 	return &resource{}, cleanup, nil
 }
 
-// @import { Bean } from "github.com/StevenBuglione/spice/annotation/core"
+// @import { Bean } from "github.com/spice-framework/spice/annotation/core"

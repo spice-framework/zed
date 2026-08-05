@@ -6,6 +6,6 @@ package main
 // @observability.Logging
 func main() {}
 
-// @import { Application } from "github.com/StevenBuglione/spice/annotation/core"
-// @import * as management from "github.com/StevenBuglione/spice/annotation/management"
-// @import * as observability from "github.com/StevenBuglione/spice/annotation/observability"
+// @import { Application } from "github.com/spice-framework/spice/annotation/core"
+// @import * as management from "github.com/spice-framework/spice/annotation/management"
+// @import * as observability from "github.com/spice-framework/spice/annotation/observability"
