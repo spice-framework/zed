@@ -38,10 +38,11 @@ rules.
 
 ## Compatibility and verification
 
-Version `0.2.0` is pre-release software and is tested against Spice
-`v0.0.0-20260805155938-cf5a130998b9`, Go 1.26.5, Rust 1.93.0, and
-`zed_extension_api` 0.7.0. The compatibility version is intentionally exact
-until coordinated preview tags exist.
+Version `0.2.0` is pre-release software and is tested against Spice core
+`v0.0.0-20260805222830-a2ecd56df246`, standalone toolchain
+`v0.0.0-20260805222344-fd87027fc195`, Go 1.26.5, Rust 1.93.0, and
+`zed_extension_api` 0.7.0. The fixture uses that exact public module pair with
+no local replacement.
 
 Run the repository gate from the root:
 
@@ -52,7 +53,9 @@ cargo test --locked
 cargo build --locked --release --target wasm32-wasip2
 cd fixture
 go mod download
-GOPROXY=off go tool github.com/spice-framework/spice/cmd/spice verify --format=json ./...
+GOPROXY=off go tool github.com/spice-framework/toolchain/cmd/spice verify --format=json ./...
 ```
 
-The fixture uses the public canonical module with no `replace` directive.
+Core descriptors/runtime remain selected from the public canonical module.
+The standalone toolchain is selected through its exact public pseudo-version;
+the release gate rejects local replacements.

@@ -48,5 +48,5 @@ jobs:
         env:
           GOPROXY: "off"
         run: >-
-          go tool github.com/spice-framework/spice/cmd/spice
+          go tool github.com/spice-framework/toolchain/cmd/spice
           verify --format=json ./...

@@ -13,8 +13,8 @@ that Zed does not expose.
   installs modules, or mutates application source.
 - Diagnostics, completion, navigation, hover, and code actions remain owned by
   the canonical Spice compiler pipeline.
-- Fixture source remains valid Go and pins a canonical Spice version without a
-  local `replace` directive.
+- Fixture source remains valid Go, retains canonical core descriptors/runtime,
+  pins exact public core/toolchain versions, and contains no local replacement.
 - Dependencies are exact and locked. Add one only after maintenance, license,
   security, cancellation, and compatibility review.
 - Keep the Zed presentation ceiling explicit: comment-prefix concealment is not
