@@ -5,7 +5,7 @@ edition = "2021"
 rust-version = "1.93"
 license = "Apache-2.0"
 description = "Zed integration for the Spice Go application framework"
-repository = "https://github.com/spice-framework/spice"
+repository = "https://github.com/spice-framework/zed"
 
 [lib]
 crate-type = ["cdylib"]
