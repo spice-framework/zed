@@ -10,7 +10,7 @@ tool (
 require github.com/spice-framework/spice v0.0.0-20260805222830-a2ecd56df246
 
 require (
-	github.com/spice-framework/toolchain v0.0.0-20260805222344-fd87027fc195 // indirect
+	github.com/spice-framework/toolchain v0.0.0-20260805230546-150f8ae62c13 // indirect
 	golang.org/x/mod v0.38.0 // indirect
 	golang.org/x/sync v0.22.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect
