@@ -39,7 +39,7 @@ rules.
 ## Compatibility and verification
 
 Version `0.2.0` is pre-release software and is tested against Spice
-`v0.0.0-20260805081925-09f55f01bb38`, Go 1.26.5, Rust 1.93.0, and
+`v0.0.0-20260805155938-cf5a130998b9`, Go 1.26.5, Rust 1.93.0, and
 `zed_extension_api` 0.7.0. The compatibility version is intentionally exact
 until coordinated preview tags exist.
 

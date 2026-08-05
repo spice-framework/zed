@@ -26,8 +26,8 @@ github.com/pierrec/lz4/v4 v4.1.26 h1:GrpZw1gZttORinvzBdXPUXATeqlJjqUG/D87TKMnhjY
 github.com/pierrec/lz4/v4 v4.1.26/go.mod h1:EoQMVJgeeEOMsCqCzqFm2O0cJvljX2nGZjcRIPL34O4=
 github.com/redis/go-redis/v9 v9.21.0 h1:FPBE4hhbAke+TLmcY3WkpbDffJEomdqPn3HYiqAtL9E=
 github.com/redis/go-redis/v9 v9.21.0/go.mod h1:v/M13XI1PVCDcm01VtPFOADfZtHf8YW3baQf57KlIkA=
-github.com/spice-framework/spice v0.0.0-20260805081925-09f55f01bb38 h1:f4KzXildlMGjKBo8xUYrbgLlbpy2J97LgvVw8iWOoY0=
-github.com/spice-framework/spice v0.0.0-20260805081925-09f55f01bb38/go.mod h1:823ZmaopXc+f3ASWbIJL26fEXl1HP7lpyO0x5tE74tE=
+github.com/spice-framework/spice v0.0.0-20260805155938-cf5a130998b9 h1:7xYQ5ez4jAp47cP4HzDlyPnL4tIZb7vlKXowfkSEAbI=
+github.com/spice-framework/spice v0.0.0-20260805155938-cf5a130998b9/go.mod h1:823ZmaopXc+f3ASWbIJL26fEXl1HP7lpyO0x5tE74tE=
 github.com/twmb/franz-go v1.21.0 h1:J3uB/poWgHD6VIilER2uCPFAZHDRXVFT+11pBgRKod4=
 github.com/twmb/franz-go v1.21.0/go.mod h1:1o+jj5oRbItsIMoE+DGpfJIcPcPtDdtkcNFPj4bWNwU=
 github.com/twmb/franz-go/pkg/kmsg v1.13.1 h1:fG5kItwysTk5UXqVwb64EpQEy3TydF3vYYK21nUQ+bI=

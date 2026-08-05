@@ -7,7 +7,7 @@ tool (
 	github.com/spice-framework/spice/cmd/spice-annotation-core
 )
 
-require github.com/spice-framework/spice v0.0.0-20260805081925-09f55f01bb38
+require github.com/spice-framework/spice v0.0.0-20260805155938-cf5a130998b9
 
 require (
 	golang.org/x/mod v0.38.0 // indirect
