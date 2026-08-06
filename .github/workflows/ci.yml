@@ -15,9 +15,13 @@ concurrency:
 
 jobs:
   verify:
-    name: Rust and canonical Spice fixture
-    runs-on: ubuntu-latest
+    name: Rust and canonical Spice fixture (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: Check out repository
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6

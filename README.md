@@ -42,7 +42,10 @@ Version `0.2.0` is pre-release software and is tested against Spice core
 `v0.0.0-20260805222830-a2ecd56df246`, standalone toolchain
 `v0.0.0-20260805230546-150f8ae62c13`, Go 1.26.5, Rust 1.93.0, and
 `zed_extension_api` 0.7.0. The fixture uses that exact public module pair with
-no local replacement.
+no local replacement. Hosted CI runs the locked Rust tests, WASI release build,
+and offline canonical Spice fixture on Linux, Windows, and macOS. This is a
+cross-platform extension/launcher proof; it does not claim installed-editor UI
+automation that Zed's extension test surface does not expose.
 
 Run the repository gate from the root:
 
