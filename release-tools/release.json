@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "repository": "spice-framework/zed",
+  "artifactBase": "spice-zed",
+  "displayName": "Spice Zed Extension",
+  "kind": "zed",
+  "versionFile": "extension.toml",
+  "versionKey": "version"
+}
