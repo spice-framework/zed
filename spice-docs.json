@@ -1,0 +1,24 @@
+{
+  "$schema": "https://spiceframework.dev/schemas/spice-docs.schema.json",
+  "schema": 1,
+  "product": {
+    "id": "zed",
+    "title": "Spice for Zed",
+    "family": "developer-tools",
+    "summary": "A Zed extension providing Spice language support through the independently versioned Spice toolchain.",
+    "maturity": "experimental",
+    "audience": [
+      "application-developer",
+      "evaluator"
+    ]
+  },
+  "content": [
+    {
+      "source": "README.md",
+      "route": "index",
+      "kind": "how-to",
+      "order": 0,
+      "search": true
+    }
+  ]
+}
