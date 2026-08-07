@@ -1,5 +1,7 @@
 # Spice for Zed
 
+Unified documentation: [spiceframework.dev/tools/zed](https://spiceframework.dev/tools/zed/).
+
 This repository contains the independently versioned Zed extension for the
 [Spice Framework](https://github.com/spice-framework/spice). It launches an
 already installed `spice lsp` process and projects compiler-owned diagnostics,
