@@ -119,6 +119,8 @@ zed::register_extension!(SpiceExtension);
 mod tests {
     use std::collections::HashMap;
 
+    use zed_extension_api::serde_json;
+
     use super::{
         annotation_completion_parts, language_server_arguments, language_server_environment,
         missing_binary_message,
@@ -173,5 +175,37 @@ mod tests {
         );
         assert_eq!(annotation_completion_parts("Application", None), None);
         assert_eq!(annotation_completion_parts("@invalid-name", None), None);
+    }
+
+    #[test]
+    fn projected_workspace_task_template_is_bounded_and_exact() {
+        let tasks: serde_json::Value =
+            serde_json::from_str(include_str!("../docs/spice-tasks.json")).unwrap();
+        let tasks = tasks.as_array().unwrap();
+        assert_eq!(tasks.len(), 5);
+        let labels = tasks
+            .iter()
+            .map(|task| task["label"].as_str().unwrap())
+            .collect::<Vec<_>>();
+        assert_eq!(
+            labels,
+            vec![
+                "Spice: Open Projected Shell",
+                "Spice: Open Codex in View",
+                "Spice: Build",
+                "Spice: Test",
+                "Spice: Verify",
+            ]
+        );
+        assert_eq!(tasks[0]["args"], serde_json::json!(["shell", "--retain"]));
+        assert_eq!(
+            tasks[1]["args"],
+            serde_json::json!(["shell", "--retain", "--", "codex"])
+        );
+        for task in tasks {
+            assert_eq!(task["command"], "spice");
+            assert_eq!(task["cwd"], "$ZED_WORKTREE_ROOT");
+            assert_eq!(task["allow_concurrent_runs"], false);
+        }
     }
 }

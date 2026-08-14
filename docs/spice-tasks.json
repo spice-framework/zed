@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Spice: Open Projected Shell",
+    "command": "spice",
+    "args": ["shell", "--retain"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Spice: Open Codex in View",
+    "command": "spice",
+    "args": ["shell", "--retain", "--", "codex"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Spice: Build",
+    "command": "spice",
+    "args": ["exec", "--", "go", "build", "./..."],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Spice: Test",
+    "command": "spice",
+    "args": ["exec", "--", "go", "test", "./..."],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Spice: Verify",
+    "command": "spice",
+    "args": ["exec", "--", "spice", "verify", "--format=json"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]

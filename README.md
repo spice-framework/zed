@@ -38,6 +38,26 @@ The extension never downloads modules, installs tools, or mutates `go.mod`.
 Spice analysis retains its normal offline and explicit-tool authorization
 rules.
 
+## Projected workspace tasks
+
+Zed's current extension API does not let an extension register arbitrary
+project commands, and this extension augments the built-in Go language rather
+than replacing its language extension. Copy
+[`docs/spice-tasks.json`](docs/spice-tasks.json) to the project's
+`.zed/tasks.json` to add these task-picker entries:
+
+- `Spice: Open Projected Shell`
+- `Spice: Open Codex in View`
+- `Spice: Build`
+- `Spice: Test`
+- `Spice: Verify`
+
+The shell and Codex tasks launch through `spice shell --retain`; build, test,
+and verification launch through `spice exec`. All therefore use the same
+materialized View workspace and command broker as the CLI and other editors.
+The template does not create a Zed virtual workspace or claim to hide the
+physical checkout from Zed itself.
+
 ## Compatibility and verification
 
 Version `0.2.0` is pre-release software and is tested against Spice core
